@@ -1,21 +1,11 @@
-#version 330 compatibility
+#version 460
 
-uniform sampler2D lightmap;
 uniform sampler2D gtexture;
 
-uniform float alphaTestRef = 0.1;
+layout(location = 0) out vec4 outColor0;
 
-in vec2 lmcoord;
-in vec2 texcoord;
-in vec4 glcolor;
-
-/* RENDERTARGETS: 0 */
-layout(location = 0) out vec4 color;
+in vec2 texCoord;
 
 void main() {
-	color = texture(gtexture, texcoord) * glcolor;
-	color *= texture(lightmap, lmcoord);
-	if (color.a < alphaTestRef) {
-		discard;
-	}
+    outColor0 = texture(gtexture, texCoord);
 }

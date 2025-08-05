@@ -1,10 +1,14 @@
-#version 330 compatibility
+#version 460
 
-out vec2 lmcoord;
-out vec4 glcolor;
+in vec3 vaPosition;
+in vec2 vaUV0;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+
+out vec2 texCoord;
 
 void main() {
-	gl_Position = ftransform();
-	lmcoord = (gl_TextureMatrix[1] * gl_MultiTexCoord1).xy;
-	glcolor = gl_Color;
+    texCoord = vaUV0;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(vaPosition, 1);
 }

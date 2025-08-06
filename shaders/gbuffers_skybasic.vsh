@@ -1,0 +1,17 @@
+#version 460
+
+in vec3 vaPosition;
+in vec2 vaUV0;
+
+uniform vec3 chunkOffset;
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+
+out vec2 texCoord;
+out vec4 foliageColor;
+
+void main() {
+    texCoord = vaUV0;
+    foliageColor = vaColor;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(vaPosition + chunkOffset, 1);
+}

@@ -7,13 +7,14 @@ uniform sampler2D colortex0;
 layout(location = 0) out vec4 outColor0;
 
 in vec2 texCoord;
+in vec4 foliageColor;
 
 void main() {
-    outColor0 = texture(gtexture, texCoord);
-    outColor0 *= texture(lightmap, texCoord);
-    outColor0 *= texture(colortex0, texCoord);
+    vec4 color = texture(gtexture, texCoord) * texture(lightmap, texCoord) * texture(colortex0, texCoord) * foliageColor;
 
-    if (outColor0.a < .1) {
+    if (color.a < .1) {
         discard;
     }
+
+    outColor0 = color;
 }

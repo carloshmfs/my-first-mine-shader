@@ -8,8 +8,10 @@ uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;
 
 out vec2 texCoord;
+out vec4 foliageColor;
 
 void main() {
     texCoord = vaUV0;
+    foliageColor = vaColor;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(vaPosition + chunkOffset, 1);
 }

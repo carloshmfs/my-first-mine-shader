@@ -12,6 +12,7 @@ uniform vec3 cameraPosition;
 
 out vec2 texCoord;
 out vec4 foliageColor;
+out vec4 mc_entity;
 
 const float PI48 = 150.796447372;
 float animationSpeed = 2.0;
@@ -52,6 +53,7 @@ void main() {
                                  vec3(0.5,0.1,0.5));
     }
 
+    mc_entity = mc_Entity;
     foliageColor = vaColor;
     texCoord = vaUV0;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos + chunkOffset, 1);

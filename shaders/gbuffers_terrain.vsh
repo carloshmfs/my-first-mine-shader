@@ -9,6 +9,7 @@ uniform vec3 chunkOffset;
 uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;
 uniform float frameTimeCounter;
+uniform int worldTime;
 uniform vec3 cameraPosition;
 
 out vec2 texCoord;
@@ -18,7 +19,7 @@ out vec3 va_normal;
 
 const float PI48 = 150.796447372;
 float animationSpeed = 2.0;
-float pi2wt = (PI48*frameTimeCounter) * animationSpeed;
+float pi2wt = (PI48*worldTime / 20) * animationSpeed;
 
 vec3 calcWave(in vec3 pos, in float fm, in float mm, in float ma, in float f0, in float f1, in float f2, in float f3, in float f4, in float f5) {
     vec3 ret;

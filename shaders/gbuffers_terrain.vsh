@@ -3,6 +3,7 @@
 in vec3 vaPosition;
 in vec2 vaUV0;
 in vec4 mc_Entity;
+in vec3 vaNormal;
 
 uniform vec3 chunkOffset;
 uniform mat4 modelViewMatrix;
@@ -13,6 +14,7 @@ uniform vec3 cameraPosition;
 out vec2 texCoord;
 out vec4 foliageColor;
 out vec4 mc_entity;
+out vec3 va_normal;
 
 const float PI48 = 150.796447372;
 float animationSpeed = 2.0;
@@ -53,6 +55,7 @@ void main() {
                                  vec3(0.5,0.1,0.5));
     }
 
+    va_normal = vaNormal;
     mc_entity = mc_Entity;
     foliageColor = vaColor;
     texCoord = vaUV0;

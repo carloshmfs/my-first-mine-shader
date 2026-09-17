@@ -8,6 +8,7 @@ layout(location = 0) out vec4 outColor0;
 in vec2 texCoord;
 in vec4 foliageColor;
 in vec4 mc_entity;
+in vec3 va_normal;
 
 void main() {
     vec4 color = texture(gtexture, texCoord) * texture(lightmap, texCoord) * foliageColor;
@@ -18,6 +19,8 @@ void main() {
 
     if (mc_entity.x == 5) {
         color.rgb *= vec3(1, 0, 0);
+    } else {
+        color = vec4(va_normal, 1);
     }
 
     outColor0 = color;

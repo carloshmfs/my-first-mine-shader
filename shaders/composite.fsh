@@ -11,7 +11,7 @@ in vec2 texCoord;
 void main() {
     vec4 color = texture(gtexture, texCoord);
 
-    color.rgb = vec3((color.r + color.g + color.b) / 3);
+    // color.rgb = vec3((color.r + color.g + color.b) / 3);
 
     outColor0 = color;
 }
